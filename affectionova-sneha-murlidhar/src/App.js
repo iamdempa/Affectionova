@@ -9,11 +9,13 @@ import NavigationBar from "./pages/NavBar";
 import HeaderImage from "./pages/HeaderImage";
 
 import Header from "./pages/Header";
+import AboutMe from './pages/AboutMe'
 
 function App() {
   return (
     <Fragment>
       <Header />
+      <AboutMe/>
     </Fragment>
   );
 }

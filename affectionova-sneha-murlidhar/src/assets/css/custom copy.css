@@ -1,0 +1,91 @@
+.navbar-custom-main {
+  font-family: "Roboto", sans-serif;
+  background-color: blue !important;
+  background: none !important;
+  border: none;
+}
+Nav Nav.Link {
+  color: red !important;
+  background: none;
+  border: none;
+}
+
+.navbar-custom-main .nav-link {
+  color: black !important;
+}
+
+.header {
+  /* position: fixed; */
+  top: 0;
+  /* left: 0; */
+  height: 100px;
+  min-height: 600px;
+  background: url("../images/flower.jpg") no-repeat top center;
+  background-attachment: fixed;
+  background-position: center top;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;
+  background-size: 100% auto;
+}
+
+.texts-on-header {
+  color: white;
+}
+
+
+.header-text-wrapper {
+  position: relative;
+  top: 20% !important;
+  margin-top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h2  {
+  font-size: 3.4em;
+  color: white;
+  font-family: "Cherry Swash", cursive;
+}
+
+.hi-iam-sneha {
+  font-size: 3.4em;
+  color: white;
+  font-family: "Cherry Swash", cursive;
+}
+
+.header-text {
+  position: absolute;
+  top: 40%;
+  left: 32.5%;
+  transform: translateY(-50%);
+}
+
+
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('../images/header-background2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+}
+
+.masthead h2{
+  font-family: 'Open Sans', sans-serif;
+}
+
+li a{
+  color: white !important;
+  font-family: 'Open Sans', sans-serif;
+  /* color: #f725c3 !important; */
+  min-height: 48px;
+  width: auto;
+  font-size: 14px;
+}

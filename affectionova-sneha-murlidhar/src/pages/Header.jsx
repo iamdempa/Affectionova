@@ -13,18 +13,8 @@ class Header extends Component {
           <NavBar2 />
 
           <HiIamSneha />
-
-          <section className="py-5">
-            <div className="container">
-              <h2 className="font-weight-light">Page Content</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Repellendus ab nulla dolorum autem nisi officiis blanditiis
-                voluptatem hic, assumenda aspernatur facere ipsam nemo ratione
-                cumque magnam enim fugiat reprehenderit expedita.
-              </p>
-            </div>
-          </section>
+            
+          
         </div>
       </div>
     );
