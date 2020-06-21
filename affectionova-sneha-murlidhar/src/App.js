@@ -1,55 +1,21 @@
-import React, { Component, Fragment } from "react";
-import { Container, Row, Col, Nav } from "react-bootstrap";
+import React, { Fragment } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./assets/css/custom.css";
 
-import ReactGA from 'react-ga';
-import $ from 'jquery';
+import NavigationBar from "./pages/NavBar";
+import HeaderImage from "./pages/HeaderImage";
 
-import NavBar from "./pages/Header";
-import Parallax from "./pages/Parralax"
+import Header from "./pages/Header";
 
-
-class HomePage extends Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      foo: 'bar',
-      resumeData: {}
-    };
-
-    ReactGA.initialize('UA-110570651-1');
-    ReactGA.pageview(window.location.pathname);
-
-  }
-
-  getResumeData(){
-    $.ajax({
-      url:'/resumeData.json',
-      dataType:'json',
-      cache: false,
-      success: function(data){
-        this.setState({resumeData: data});
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.log(err);
-        alert(err);
-      }
-    });
-  }
-
-  componentDidMount(){
-    this.getResumeData();
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <NavBar data={this.state.resumeData.main}/>  
-        <Parallax/>
-      </div>
-    );
-  }
-  
+function App() {
+  return (
+    <Fragment>
+      <Header />
+    </Fragment>
+  );
 }
 
-export default HomePage;
+export default App;
