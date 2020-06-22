@@ -3,6 +3,10 @@ import aboutme from "../assets/images/aboutme.jpg";
 
 import { Jumbotron, Container, Row, Col, Image } from "react-bootstrap";
 
+import { ParallaxProvider, Parallax } from "react-scroll-parallax";
+
+
+
 class AboutMe extends Component {
   render() {
     return (
@@ -33,13 +37,13 @@ class AboutMe extends Component {
               as a translator for WHO (World Health Organisation).
             </p>
           </Row>
-          <hr className="about-me-footer-hr"/>
+          <hr className="about-me-footer-hr" />
           <Row className="about-me-footer">
             <Col>
               <h5>
                 <span className="about-me-footer-name">Sneha Murlidhar</span>{" "}
                 <span className="about-me-footer-designation">
-                | Undergraduate Student (AOD)
+                  | Undergraduate Student (AOD)
                 </span>
               </h5>
             </Col>
