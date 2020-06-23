@@ -1,36 +1,25 @@
-import React, {useState} from "react";
-import { useTrail, animated } from "react-spring";
+import React, { Component } from "react";
+import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons";
 
-const items = ["Lorem", "ipsum", "dolor", "sit"];
-const config = { mass: 5, tension: 2000, friction: 200 };
+import AboutMe from "./AboutMe";
+import PhotoGallery from "./PhotoGallery";
 
-function Parallax() {
-  const [toggle, set] = useState(true);
-  const trail = useTrail(items.length, {
-    config,
-    opacity: toggle ? 1 : 0,
-    x: toggle ? 0 : 20,
-    height: toggle ? 80 : 0,
-    from: { opacity: 0, x: 20, height: 0 },
-  });
-  return (
-    <div className="trails-main">
+class ParallaxDemp extends Component {
+  render() {
+    return (
       <div>
-        {trail.map(({ x, height, ...rest }, index) => (
-          <animated.div
-            key={items[index]}
-            className="trails-text"
-            style={{
-              ...rest,
-              transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
-            }}
-          >
-            <animated.div style={{ height }}>{items[index]}</animated.div>
-          </animated.div>
-        ))}
+        <Parallax
+          pages={2}
+          scrolling={true}
+          ref={(ref) => (this.parallax = ref)}
+        >
+          <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 1 }}>
+            <AboutMe />
+          </ParallaxLayer>
+        </Parallax>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default Parallax;
+export default ParallaxDemp;

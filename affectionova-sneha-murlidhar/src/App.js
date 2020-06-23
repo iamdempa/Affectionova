@@ -19,12 +19,9 @@ function App() {
     },
   });
 
-  const imageBorder = useSpring({ x: 100, from: { x: 0 } });
-
   return (
     <animated.div style={fade}>
       <Header />
-
       <AboutMe />
       <PhotoGallery />
     </animated.div>
