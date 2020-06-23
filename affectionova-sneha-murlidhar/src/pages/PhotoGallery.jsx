@@ -3,6 +3,46 @@ import React from "react";
 import { Container, Col, Row, Image } from "react-bootstrap";
 
 import Tilt from "react-tilt";
+import Plx from "react-plx";
+
+const moveLeftPhoto = [
+  {
+    start: "self",
+    end: 700,
+
+    properties: [
+      {
+        startValue: -200,
+        endValue: 0,
+        property: "translateX",
+      },
+      {
+        startValue: 0,
+        endValue: 1,
+        property: "opacity",
+      }
+    ],
+  },
+];
+const movePhoto1 = [
+  {
+    start: "self",
+    end: 700,
+    easing: "ease",
+    properties: [
+      {
+        startValue: -200,
+        endValue: 0,
+        property: "translateY",
+      },
+      {
+        startValue: 0,
+        endValue: 1,
+        property: "opacity",
+      }
+    ],
+  },
+];
 
 function PhotoGallery() {
   const photos1 = ["1", "2", "3"];
@@ -10,25 +50,27 @@ function PhotoGallery() {
   const photos3 = ["1", "2", "3", "1", "2", "3"];
 
   return (
-    <Container>
+    <Container className="photo-gallery-container">
       <Row>
         <Col>
-          <Tilt
-            className="Tilt"
-            options={{
-              max: 25,
-              easing: "cubic-bezier(.03,.98,.52,.99)",
-              speed: 3000,
-              transition: true,
-              scale: 1,
-            }}
-          >
-            <Image
-              className="photo-gallery-big-photo img-fluid "
-              src="https://via.placeholder.com/1500"
-              thumbnail
-            />
-          </Tilt>
+          <Plx parallaxData={moveLeftPhoto}>
+            <Tilt
+              className="Tilt"
+              options={{
+                max: 25,
+                easing: "cubic-bezier(.03,.98,.52,.99)",
+                speed: 3000,
+                transition: true,
+                scale: 1,
+              }}
+            >
+              <Image
+                className="photo-gallery-big-photo img-fluid "
+                src="https://via.placeholder.com/1500"
+                thumbnail
+              />
+            </Tilt>
+          </Plx>
         </Col>
         <Col>
           <Row className="photos-1-row">
@@ -36,22 +78,24 @@ function PhotoGallery() {
               console.log("test");
               return (
                 <Col>
-                  <Tilt
-                    className="Tilt"
-                    options={{
-                      max: 45,
-                      easing: "cubic-bezier(.03,.98,.52,.99)",
-                      speed: 5000,
-                      transition: true,
-                      scale: 1,
-                    }}
-                  >
-                    <Image
-                      className="photos1 img-fluid"
-                      src="https://via.placeholder.com/1500"
-                      thumbnail
-                    />
-                  </Tilt>
+                  <Plx parallaxData={movePhoto1}>
+                    <Tilt
+                      className="Tilt"
+                      options={{
+                        max: 45,
+                        easing: "cubic-bezier(.03,.98,.52,.99)",
+                        speed: 5000,
+                        transition: true,
+                        scale: 1,
+                      }}
+                    >
+                      <Image
+                        className="photos1 img-fluid"
+                        src="https://via.placeholder.com/1500"
+                        thumbnail
+                      />
+                    </Tilt>
+                  </Plx>
                 </Col>
               );
             })}

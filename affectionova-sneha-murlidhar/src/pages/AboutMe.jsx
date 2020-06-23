@@ -3,137 +3,118 @@ import aboutme from "../assets/images/aboutme.jpg";
 import photo from "../assets/images/aboutme.jpg";
 
 import { Jumbotron, Container, Row, Col, Image } from "react-bootstrap";
+import Plx from "react-plx";
 
-import { ParallaxProvider, Parallax } from "react-scroll-parallax";
-import { useSpring, animated } from "react-spring";
+const moveAboutMe = [
+  {
+    start: "self",
+    end: 450,
+
+    properties: [
+      {
+        startValue: 200,
+        endValue: 0,
+        property: "translateY",
+      },
+      {
+        startValue: 0,
+        endValue: 1,
+        property: "opacity",
+      }
+    ],
+  },
+];
+
+const moveAboutMeDescription = [
+  {
+    start: "self",
+    end: 550,
+
+    properties: [
+      {
+        startValue: -200,
+        endValue: 0,
+        property: "translateX",
+      },
+      {
+        startValue: 0,
+        endValue: 1,
+        property: "opacity",
+      }
+    ],
+  },
+];
+
+const moveAboutMeFooterName = [
+  {
+    start: 250,
+    end: 600,
+    properties: [
+      {
+        startValue: 300,
+        endValue: 0,
+        property: "translateX",
+      },
+      {
+        startValue: 0,
+        endValue: 1,
+        property: "opacity",
+      }
+    ],
+  },
+];
 
 function AboutMe() {
-  const [isLoaded, setLoaded] = useState(false);
-  const [{ param }, set] = useSpring(() => ({ param: 0 }));
-
-  const onScroll = () => {
-    let ratio = window.scrollY / window.innerHeight;
-    ratio = ratio > 1 ? 1 : ratio;
-
-    set({
-      param: ratio,
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-
-    // fetch({ photo }).then((pr) => {
-    //   setLoaded(true);
-    // });
-    setLoaded(true);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
-
   return (
-    <Jumbotron fluid className=" about-me-jumbotron shadow text-center">
-      <Container>
-        <Row>
-          <Col>
-            {isLoaded ? (
-              <animated.h1
-                className="about-me-name "
-                style={{
-                  opacity: param.interpolate({
-                    range: [0, 0.5, 0.75, 1],
-                    output: [0, 0.5, 0.75, 1],
-                  }),
-                  transform: param
-                    .interpolate({
-                      range: [0, 0.5, 1],
-                      output: [200, 20, -10],
-                    })
-                    .interpolate((x) => `translateY(${x}px)`),
-                }}
-              >
-                ABOUT ME
-              </animated.h1>
-            ) : (
-              <span />
-            )}
-            {/* <h1 className="about-me-name ">ABOUT ME</h1> */}
-            <hr className="hr-about-me" />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Image
-              src={aboutme}
-              className="about-me-image"
-              roundedCircle
-              thumbnail
-            />
-          </Col>
-        </Row>
+    //<Jumbotron fluid className="about-me-jumbotron shadow text-center">
+    <Container className="about-me-container text-center">
+      <Row>
+        <Col>
+          <Plx parallaxData={moveAboutMe}>
+            <h1 className="about-me-name ">ABOUT ME</h1>
+          </Plx>
 
-        <Row className="text-center">
-          {isLoaded ? (
-            <animated.p
-              className="about-me-description text-center"
-              style={{
-                opacity: param.interpolate({
-                  range: [0, 0.5, 0.75, 1],
-                  output: [0, 0.5, 0.75, 1],
-                }),
-                transform: param
-                  .interpolate({
-                    range: [0, 0.5, 1],
-                    output: [-150, -35, 0],
-                  })
-                  .interpolate((x) => `translateX(${x}px)`),
-              }}
-            >
-              I'm Sneha, a Fashion Designing and Textile Final year
-              undergraduate at AOD (Academy Of Design) Experienced at working as
-              a Fashion designing intern at ODEL for 3 months also have worked
-              as a translator for WHO (World Health Organisation).
-            </animated.p>
-          ) : (
-            <span />
-          )}
-        </Row>
-        <hr className="about-me-footer-hr" />
-        <Row className="about-me-footer">
-          <Col>
+          <hr className="hr-about-me" />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Image
+            src={aboutme}
+            className="about-me-image"
+            roundedCircle
+            thumbnail
+          />
+        </Col>
+      </Row>
+
+      <Row className="text-center">
+        <Plx parallaxData={moveAboutMeDescription}>
+          <p className="about-me-description text-center">
+            I'm Sneha, a Fashion Designing and Textile Final year undergraduate
+            at AOD (Academy Of Design) Experienced at working as a Fashion
+            designing intern at ODEL for 3 months also have worked as a
+            translator for WHO (World Health Organisation).
+          </p>
+        </Plx>
+      </Row>
+      <hr className="about-me-footer-hr" />
+      <Row className="about-me-footer">
+        <Col>
+          <Plx parallaxData={moveAboutMeFooterName}>
             <h5>
-              {isLoaded ? (
-                <animated.div
-                  style={{
-                    opacity: param.interpolate({
-                      range: [0, 0.5, 0.75, 1],
-                      output: [0, 0.5, 0.75, 1],
-                    }),
-                    transform: param
-                      .interpolate({
-                        range: [0, 0.5, 1],
-                        output: [450, 55, 0],
-                      })
-                      .interpolate((x) => `translateX(${x}px)`),
-                  }}
-                >
-                  <p className="about-me-footer-name">
-                    Sneha Murlidhar{" "}
-                    <span className="about-me-footer-designation">
-                      | Undergraduate Student (AOD)
-                    </span>
-                  </p>
-                </animated.div>
-              ) : (
-                <span />
-              )}
+              <p className="about-me-footer-name">
+                Sneha Murlidhar{" "}
+                <span className="about-me-footer-designation">
+                  | Undergraduate Student (AOD)
+                </span>
+              </p>
             </h5>
-          </Col>
-        </Row>
-      </Container>
-    </Jumbotron>
+          </Plx>
+        </Col>
+      </Row>
+    </Container>
+    //</Jumbotron>
   );
 }
 

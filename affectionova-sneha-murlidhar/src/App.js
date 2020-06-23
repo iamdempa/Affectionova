@@ -23,7 +23,9 @@ function App() {
   return (
     <animated.div style={fade}>
       <Header />
+      <br/>
       <AboutMe />
+
 
       <PhotoGallery />
     </animated.div>
