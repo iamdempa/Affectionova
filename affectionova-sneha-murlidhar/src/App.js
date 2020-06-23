@@ -7,6 +7,7 @@ import Header from "./pages/Header";
 import AboutMe from "./pages/AboutMe";
 import PhotoGallery from "./pages/PhotoGallery";
 
+
 import { useSpring, animated } from "react-spring";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
     <animated.div style={fade}>
       <Header />
       <AboutMe />
+
       <PhotoGallery />
     </animated.div>
   );

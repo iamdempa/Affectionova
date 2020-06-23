@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 
 import { Container, Col, Row, Image } from "react-bootstrap";
-import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
-import photo from "../assets/images/aboutme.jpg";
+import Tilt from "react-tilt";
 
 function PhotoGallery() {
   const photos1 = ["1", "2", "3"];
@@ -14,11 +13,22 @@ function PhotoGallery() {
     <Container>
       <Row>
         <Col>
-          <Image
-            className="photo-gallery-big-photo img-fluid "
-            src="https://via.placeholder.com/1500"
-            thumbnail
-          />
+          <Tilt
+            className="Tilt"
+            options={{
+              max: 25,
+              easing: "cubic-bezier(.03,.98,.52,.99)",
+              speed: 3000,
+              transition: true,
+              scale: 1,
+            }}
+          >
+            <Image
+              className="photo-gallery-big-photo img-fluid "
+              src="https://via.placeholder.com/1500"
+              thumbnail
+            />
+          </Tilt>
         </Col>
         <Col>
           <Row className="photos-1-row">
@@ -26,11 +36,22 @@ function PhotoGallery() {
               console.log("test");
               return (
                 <Col>
-                  <Image
-                    className="photos1 img-fluid"
-                    src="https://via.placeholder.com/1500"
-                    thumbnail
-                  />
+                  <Tilt
+                    className="Tilt"
+                    options={{
+                      max: 45,
+                      easing: "cubic-bezier(.03,.98,.52,.99)",
+                      speed: 5000,
+                      transition: true,
+                      scale: 1,
+                    }}
+                  >
+                    <Image
+                      className="photos1 img-fluid"
+                      src="https://via.placeholder.com/1500"
+                      thumbnail
+                    />
+                  </Tilt>
                 </Col>
               );
             })}
@@ -40,11 +61,22 @@ function PhotoGallery() {
               console.log("test");
               return (
                 <Col>
-                  <Image
-                    className="photos2 img-fluid"
-                    src="https://via.placeholder.com/2500x1700"
-                    thumbnail
-                  />
+                  <Tilt
+                    className="Tilt"
+                    options={{
+                      max: 25,
+                      easing: "cubic-bezier(.03,.98,.52,.99)",
+                      speed: 3000,
+                      transition: true,
+                      scale: 1,
+                    }}
+                  >
+                    <Image
+                      className="photos2 img-fluid"
+                      src="https://via.placeholder.com/2500x1700"
+                      thumbnail
+                    />
+                  </Tilt>
                 </Col>
               );
             })}
@@ -54,16 +86,26 @@ function PhotoGallery() {
               console.log("test");
               return (
                 <Col>
-                  <Image
-                    className="photos3 img-fluid"
-                    src="https://via.placeholder.com/2500"
-                    thumbnail
-                  />
+                  <Tilt
+                    className="Tilt"
+                    options={{
+                      max: 55,
+                      easing: "cubic-bezier(.03,.98,.52,.99)",
+                      speed: 5000,
+                      transition: true,
+                      scale: 1,
+                    }}
+                  >
+                    <Image
+                      className="photos3 img-fluid"
+                      src="https://via.placeholder.com/2500"
+                      thumbnail
+                    />
+                  </Tilt>
                 </Col>
               );
             })}
           </Row>
-          
         </Col>
       </Row>
     </Container>

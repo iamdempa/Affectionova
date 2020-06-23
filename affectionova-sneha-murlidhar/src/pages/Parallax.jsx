@@ -1,25 +1,72 @@
-import React, { Component } from "react";
-import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons";
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import { useSpring, animated } from "react-spring";
+import photo from '../assets/images/aboutme.jpg'
 
-import AboutMe from "./AboutMe";
-import PhotoGallery from "./PhotoGallery";
+const style = {
+//   background: 'url("../assets/images/aboutme.jpg") center center / cover no-repeat',
+  padding: "10px",
+  width: "300px",
+  height: "200px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+};
 
-class ParallaxDemp extends Component {
-  render() {
-    return (
-      <div>
-        <Parallax
-          pages={2}
-          scrolling={true}
-          ref={(ref) => (this.parallax = ref)}
-        >
-          <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 1 }}>
-            <AboutMe />
-          </ParallaxLayer>
-        </Parallax>
-      </div>
-    );
-  }
-}
+const textStyle = {
+  color: "black",
+  fontSize: "50px",
+  background: "none",
+};
 
-export default ParallaxDemp;
+const App = (props) => {
+  const [isLoaded, setLoaded] = useState(false);
+  const [{ param }, set] = useSpring(() => ({ param: 0 }));
+
+  const onScroll = () => {
+    let ratio = window.scrollY / window.innerHeight;
+    ratio = ratio > 1 ? 1 : ratio;
+
+    set({
+      param: ratio,
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+
+    fetch({photo}).then((pr) => {
+      setLoaded(true);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  return (
+    <div style={style}>
+      {isLoaded ? (
+        <div style={style}>
+          <animated.div
+            style={{
+              ...textStyle,
+              opacity: param.interpolate({
+                range: [0, 0.5, 0.75, 1],
+                output: [0, 0.5, 0.75, 1],
+              }),
+              transform: param
+                .interpolate({ range: [0, 0.5, 1], output: [-50, -25, 525] })
+                .interpolate((x) => `translateX(${x}px)`),
+            }}
+          >
+            Some text
+          </animated.div>
+        </div>
+      ) : (
+        <span />
+      )}
+    </div>
+  );
+};
+export default App;
