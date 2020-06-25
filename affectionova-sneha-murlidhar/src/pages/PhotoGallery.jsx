@@ -5,6 +5,9 @@ import { Container, Col, Row, Image } from "react-bootstrap";
 import Tilt from "react-tilt";
 import Plx from "react-plx";
 
+import { Bounce } from "react-awesome-reveal";
+import ScrollAnimation from "react-animate-on-scroll";
+
 const moveLeftPhoto = [
   {
     start: "self",
@@ -12,7 +15,7 @@ const moveLeftPhoto = [
 
     properties: [
       {
-        startValue: -200,
+        startValue: -300,
         endValue: 0,
         property: "translateX",
       },
@@ -20,26 +23,26 @@ const moveLeftPhoto = [
         startValue: 0,
         endValue: 1,
         property: "opacity",
-      }
+      },
     ],
   },
 ];
 const movePhoto1 = [
   {
     start: "self",
-    end: 700,
+    end: 750,
     easing: "ease",
     properties: [
       {
-        startValue: -200,
-        endValue: 0,
-        property: "translateY",
+        startValue: 0.1,
+        endValue: 1,
+        property: "scale",
       },
       {
         startValue: 0,
         endValue: 1,
         property: "opacity",
-      }
+      },
     ],
   },
 ];
@@ -53,7 +56,7 @@ function PhotoGallery() {
     <Container className="photo-gallery-container">
       <Row>
         <Col>
-          <Plx parallaxData={moveLeftPhoto}>
+          <ScrollAnimation animateIn="zoomIn" duration={2}>
             <Tilt
               className="Tilt"
               options={{
@@ -64,13 +67,15 @@ function PhotoGallery() {
                 scale: 1,
               }}
             >
+              {/* <Plx parallaxData={moveLeftPhoto}> */}
               <Image
                 className="photo-gallery-big-photo img-fluid "
                 src="https://via.placeholder.com/1500"
                 thumbnail
               />
+              {/* </Plx> */}
             </Tilt>
-          </Plx>
+          </ScrollAnimation>
         </Col>
         <Col>
           <Row className="photos-1-row">
@@ -78,7 +83,8 @@ function PhotoGallery() {
               console.log("test");
               return (
                 <Col>
-                  <Plx parallaxData={movePhoto1}>
+                  <ScrollAnimation animateIn="fadeInDown" duration={1.5}>
+                    {/* <Plx parallaxData={movePhoto1}> */}
                     <Tilt
                       className="Tilt"
                       options={{
@@ -95,7 +101,8 @@ function PhotoGallery() {
                         thumbnail
                       />
                     </Tilt>
-                  </Plx>
+                    {/* </Plx> */}
+                  </ScrollAnimation>
                 </Col>
               );
             })}
@@ -105,22 +112,24 @@ function PhotoGallery() {
               console.log("test");
               return (
                 <Col>
-                  <Tilt
-                    className="Tilt"
-                    options={{
-                      max: 25,
-                      easing: "cubic-bezier(.03,.98,.52,.99)",
-                      speed: 3000,
-                      transition: true,
-                      scale: 1,
-                    }}
-                  >
-                    <Image
-                      className="photos2 img-fluid"
-                      src="https://via.placeholder.com/2500x1700"
-                      thumbnail
-                    />
-                  </Tilt>
+                  <ScrollAnimation animateIn="fadeInUp" duration={1.5}>
+                    <Tilt
+                      className="Tilt"
+                      options={{
+                        max: 25,
+                        easing: "cubic-bezier(.03,.98,.52,.99)",
+                        speed: 3000,
+                        transition: true,
+                        scale: 1,
+                      }}
+                    >
+                      <Image
+                        className="photos2 img-fluid"
+                        src="https://via.placeholder.com/2500x1700"
+                        thumbnail
+                      />
+                    </Tilt>
+                  </ScrollAnimation>
                 </Col>
               );
             })}
