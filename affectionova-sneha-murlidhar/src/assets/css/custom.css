@@ -21,6 +21,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow:  0 4px 10px 5px white;
 }
 
 /* Hi!, I am Sneha :) */
@@ -121,7 +122,23 @@ hr.style-two {
 }
 
 /* ========== About Me ========== */
+.about-me-container {
+  /* The image used */
+  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
 
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .about-me-jumbotron {
   background-color: white;
 }
@@ -150,7 +167,7 @@ hr.style-two {
 .about-me-name {
   margin-top: 20px;
   font-family: "Overpass", sans-serif;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   letter-spacing: 10px;
   font-size: 28px;
   color: black;
@@ -185,7 +202,6 @@ hr.style-two {
   width: 20%;
 }
 
-
 /* ========= Photo Gallery ========= */
 .photo-gallery-container {
   margin-top: 70px;
@@ -216,7 +232,5 @@ hr.style-two {
   margin: 0px !important;
   background-size: cover;
 }
-
-
 
 /* ========================  PARALLAX  */

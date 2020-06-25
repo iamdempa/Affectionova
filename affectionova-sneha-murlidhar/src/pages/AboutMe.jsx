@@ -12,11 +12,21 @@ function AboutMe() {
     <Container fluid className="about-me-container text-center">
       <Row>
         <Col>
-          <ScrollAnimation animateIn="fadeInUp" offset={500} animatePreScroll={false}>
+          <ScrollAnimation
+            animateIn="fadeInUp"
+            
+            animatePreScroll={false}
+          >
             <h1 className="about-me-name ">ABOUT ME</h1>
           </ScrollAnimation>
 
-          <hr className="hr-about-me" />
+          <ScrollAnimation
+            animateIn="fadeInRight"
+            
+            animatePreScroll={false}
+          >
+            <hr className="hr-about-me" />
+          </ScrollAnimation>
         </Col>
       </Row>
       <Row>
@@ -32,13 +42,19 @@ function AboutMe() {
 
       <Row className="text-center">
         {/* <Plx parallaxData={moveAboutMeDescription}> */}
-        <ScrollAnimation animateIn="fadeInLeft" duration={3} animatePreScroll={false}>
-          <p className="about-me-description text-center">
-            I'm Sneha, a Fashion Designing and Textile Final year undergraduate
-            at AOD (Academy Of Design) Experienced at working as a Fashion
-            designing intern at ODEL for 3 months also have worked as a
-            translator for WHO (World Health Organisation).
-          </p>
+        <ScrollAnimation
+          animateIn="fadeInLeft"
+          // duration={3}
+          animatePreScroll={false}
+        >
+          <div>
+            <p className="about-me-description text-center">
+              I'm Sneha, a Fashion Designing and Textile Final year
+              undergraduate at AOD (Academy Of Design) Experienced at working as
+              a Fashion designing intern at ODEL for 3 months also have worked
+              as a translator for WHO (World Health Organisation).
+            </p>
+          </div>
         </ScrollAnimation>
 
         {/* </Plx> */}
@@ -48,7 +64,11 @@ function AboutMe() {
         <Col>
           {/* <Plx parallaxData={moveAboutMeFooterName}> */}
 
-          <ScrollAnimation animateIn="fadeInRight" duration={2} animatePreScroll={false}>
+          <ScrollAnimation
+            animateIn="fadeInRight"
+            // duration={2}
+            animatePreScroll={false}
+          >
             <p className="about-me-footer-name">
               Sneha Murlidhar{" "}
               <span className="about-me-footer-designation">
