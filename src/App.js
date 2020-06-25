@@ -7,6 +7,7 @@ import "./assets/css/custom.css";
 import Header from "./pages/Header";
 import AboutMe from "./pages/AboutMe";
 import PhotoGallery from "./pages/PhotoGallery";
+import CarouselPhotos from "./pages/Carousel";
 import P3 from "./pages/Parallax3";
 
 import { useSpring, animated } from "react-spring";
@@ -24,12 +25,9 @@ function App() {
   return (
     <animated.div style={fade}>
       <Header />
-
-
       <AboutMe />
       <PhotoGallery />
-
-
+      <CarouselPhotos />
     </animated.div>
   );
 }

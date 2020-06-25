@@ -14,17 +14,13 @@ function AboutMe() {
         <Col>
           <ScrollAnimation
             animateIn="fadeInUp"
-            animateOnce={true}            
+            animateOnce={true}
             animatePreScroll={false}
           >
             <h1 className="about-me-name ">ABOUT ME</h1>
           </ScrollAnimation>
 
-          <ScrollAnimation
-            animateIn="fadeInRight"
-            
-            animatePreScroll={false}
-          >
+          <ScrollAnimation animateIn="fadeInRight" animatePreScroll={false}>
             <hr className="hr-about-me" />
           </ScrollAnimation>
         </Col>
@@ -59,7 +55,13 @@ function AboutMe() {
 
         {/* </Plx> */}
       </Row>
-      <hr className="about-me-footer-hr" />
+      <ScrollAnimation
+        animateIn="fadeInLeft"
+        duration={2}
+        animatePreScroll={false}
+      >
+        <hr className="about-me-footer-hr" />
+      </ScrollAnimation>
       <Row className="about-me-footer">
         <Col>
           {/* <Plx parallaxData={moveAboutMeFooterName}> */}

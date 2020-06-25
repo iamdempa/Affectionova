@@ -50,12 +50,12 @@ const movePhoto1 = [
 function PhotoGallery() {
   const photos1 = ["1", "2", "3"];
   const photos2 = ["1"];
-  const photos3 = ["1", "2", "3", "1", "2", "3"];
+  const photos3 = ["1", "2"];
 
   return (
     <Container className="photo-gallery-container">
       <Row>
-        <Col>
+        <Col className="col-xs-6">
           <ScrollAnimation animateIn="zoomIn" duration={2}>
             <Tilt
               className="Tilt"
@@ -82,7 +82,7 @@ function PhotoGallery() {
             {photos1.map(function (item, i) {
               console.log("test");
               return (
-                <Col>
+                <Col className="col-xs-4">
                   <ScrollAnimation animateIn="fadeInDown" duration={1.5}>
                     {/* <Plx parallaxData={movePhoto1}> */}
                     <Tilt
@@ -111,7 +111,7 @@ function PhotoGallery() {
             {photos2.map(function (item, i) {
               console.log("test");
               return (
-                <Col>
+                <Col className="col-xs-12">
                   <ScrollAnimation animateIn="fadeInUp" duration={1.5}>
                     <Tilt
                       className="Tilt"
@@ -138,7 +138,7 @@ function PhotoGallery() {
             {photos3.map(function (item, i) {
               console.log("test");
               return (
-                <Col>
+                <Col className="col-sm-6 col-xs-12">
                   <Tilt
                     className="Tilt"
                     options={{
