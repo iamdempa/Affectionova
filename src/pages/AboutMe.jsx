@@ -14,7 +14,7 @@ function AboutMe() {
         <Col>
           <ScrollAnimation
             animateIn="fadeInUp"
-            
+            animateOnce={true}            
             animatePreScroll={false}
           >
             <h1 className="about-me-name ">ABOUT ME</h1>
