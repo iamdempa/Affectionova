@@ -10,7 +10,7 @@ import { FaAngleDoubleDown } from "react-icons/fa";
 class HiIamSneha extends Component {
   scrollToAboutMe() {
     window.scrollTo({
-      top: 500,
+      top: 600,
       behavior: "smooth",
     });
   }
