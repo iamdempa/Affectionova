@@ -25,7 +25,7 @@ function App() {
     <animated.div style={fade}>
       <Header />
 
-      <br />
+
       <AboutMe />
       <PhotoGallery />
 

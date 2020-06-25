@@ -4,17 +4,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import '../node_modules/font-awesome/css/font-awesome.min.css';
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
 
+import { Button } from "react-bootstrap";
+import { FaAngleDoubleDown } from "react-icons/fa";
+
 class HiIamSneha extends Component {
+  scrollToAboutMe() {
+    window.scrollTo({
+      top: 500,
+      behavior: "smooth",
+    });
+  }
+
   render() {
     return (
       <div>
-        <header className="masthead" >
+        <header className="masthead">
           <div className="container h-100">
             <div className="row h-100 align-items-center">
               <div className="col-12 text-center  ">
                 <hr className="hr style-two" />
                 <h2 className="font-weight-light">Hi!, I am Sneha :)</h2>
-                <p className="welcome-you-to-my ">
+                <p className="welcome-you-to-my">
                   Welcome you to my design portfolio. Showering your days with
                   the new Insipration Designs and Ideas...
                 </p>
@@ -32,7 +42,7 @@ class HiIamSneha extends Component {
                           <i className="fa fa-instagram"></i>
                         </span>
                       </a>
-                      <a href="https://twitter.com/SnehaMurlidhar"> 
+                      <a href="https://twitter.com/SnehaMurlidhar">
                         <span className="effect7">
                           <i className="fa fa-twitter "></i>
                         </span>
@@ -44,6 +54,14 @@ class HiIamSneha extends Component {
                       </a>
                     </div>
                   </div>
+                </div>
+                <div style={{ marginTop: 50 }}>
+                  <Button
+                    variant="outline-light"
+                    onClick={this.scrollToAboutMe}
+                  >
+                    <FaAngleDoubleDown />
+                  </Button>{" "}
                 </div>
               </div>
             </div>
